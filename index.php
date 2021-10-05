@@ -3,6 +3,8 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
+	<!-- Icono que aparece en la pestaña -->
+	<link rel="shortcut icon" href="../img/simbolo_medico.png" type="image/png">
 	<!-- Fuentes -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -10,6 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<!-- Titulo -->
 	<title>Login</title>
+	<!-- Titulo -->
+	<title>Hospital Online</title>
 </head>
 <body>
 	<!-- Imagen de fondo -->
