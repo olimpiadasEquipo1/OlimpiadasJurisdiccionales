@@ -247,6 +247,10 @@ a:hover{
 
 /* INICIO HOME */
 
+.vacunacion {
+	overflow-y: hidden;
+}
+
 .mayus {
 	text-transform: uppercase;
 }
