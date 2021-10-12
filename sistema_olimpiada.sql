@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2021 a las 01:06:58
+-- Tiempo de generación: 12-10-2021 a las 13:00:55
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -47,7 +47,12 @@ CREATE TABLE `diariopaciente` (
 --
 
 INSERT INTO `diariopaciente` (`id_semana`, `actividadLun`, `actividadMar`, `actividadMie`, `actividadJue`, `actividadVie`, `actividadSab`, `actividadDom`, `pesoSemanal`, `estado`, `valoracionSemana`, `id_usuario`) VALUES
-(1, 'comer', 'fulbo', 'comer', 'dormir', 'comer', 'fulbo', 'dormir', 'perdi 200kg', 'Me siento muy bien actualmente', 'muy buena', 15);
+(1, 'comer', 'fulbo', 'comer', 'dormir', 'comer', 'fulbo', 'dormir', 'perdi 200kg', 'Me siento muy bien actualmente', 'muy buena', 15),
+(2, 'dormir', 'dormir', 'dormir', 'jugar league of legends', 'dormir', 'dormir', 'dormir', 'gane 2 kilos', 'depresion', 'regular', 15),
+(3, 'Regar las plantas', 'Salir al parque', 'Cenar con mis amigos', 'Ir al cine con familia', 'Ver serie con esposa', 'Jugar al fútbol con amigos', 'Me pesé y tomé mi medicamento', 'Perdí 300 gramos', 'Esta semana fue muy buena, pase muy buenas experiencias y me siento genial', 'muy buena', 16),
+(4, 'Regar las plantas', 'Hacer yoga y salir a caminar', 'Festejé Halloween con mis familiares y comí canelones, mi comida favorita', 'Fui a hacer las compras al supermercado', 'Jugue videojuegos con mis primos', 'Fui al cumpleaños de mi suegro', 'Me fui a pesar y tomé mi medicamento', 'perdí 100 gramos', 'A gusto con la vida pero un poco cansado, quizá la próxima semana debería de relajarme más y descansar en mi casa', 'buena', 16),
+(5, 'Regar las plantas', 'Salir al parque', 'Cenar con mis amigos', 'Ir al cine con familia', 'Ver serie con esposa', 'Jugar al fútbol con amigos', 'Me pesé y tomé mi medicamento', 'Perdí 300 gramos', 'Esta semana fue muy buena, pase muy buenas experiencias y me siento genial', 'Muy buena', 17),
+(6, 'Regar las plantas', 'Hacer yoga y salir a caminar', 'Festejé Halloween con mis familiares y comí canelones, mi comida favorita', 'Fui a hacer las compras al supermercado', 'Jugue videojuegos con mis primos', 'Fui al cumpleaños de mi suegro', 'Me fui a pesar y tomé mi medicamento', 'perdí 100 gramos', 'A gusto con la vida pero un poco cansado, quizá la próxima semana debería de relajarme más y descansar en mi casa', 'Buena', 17);
 
 -- --------------------------------------------------------
 
@@ -106,6 +111,7 @@ CREATE TABLE `usuarios` (
   `contraseña` varchar(32) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
+  `genero` varchar(9) NOT NULL,
   `fecha_de_nacimiento` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -113,9 +119,11 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `usuario`, `contraseña`, `nombre`, `apellido`, `fecha_de_nacimiento`) VALUES
-(15, 'adm_billie', '99d55289dd799485af0fd54f56d8ba6a', 'Billie', 'Eilish', '2020-02-20'),
-(16, 'juanjo', '224c0b12060d7b4e22089beca8f95b68', 'Juan', 'José María', '2020-02-20');
+INSERT INTO `usuarios` (`id_usuario`, `usuario`, `contraseña`, `nombre`, `apellido`, `genero`, `fecha_de_nacimiento`) VALUES
+(15, 'adm_billie', '99d55289dd799485af0fd54f56d8ba6a', 'Billie', 'Eilish', 'Femenino', '2020-02-20'),
+(16, 'juanjo', '224c0b12060d7b4e22089beca8f95b68', 'Juan', 'José María', 'Masculino', '2020-02-20'),
+(17, 'augusto', '224c0b12060d7b4e22089beca8f95b68', 'Augusto', 'Gómez', 'Masculino', '2001-03-23'),
+(18, 'Paula', '224c0b12060d7b4e22089beca8f95b68', 'Paula', 'Albarracin', 'Femenino', '1998-10-18');
 
 --
 -- Índices para tablas volcadas
@@ -154,7 +162,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `diariopaciente`
 --
 ALTER TABLE `diariopaciente`
-  MODIFY `id_semana` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_semana` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `odontologos`
@@ -172,7 +180,7 @@ ALTER TABLE `oftalmologos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

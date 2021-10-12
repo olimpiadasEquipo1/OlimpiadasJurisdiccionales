@@ -11,8 +11,16 @@ if ($_SESSION["usuario"] === null) {
 
 $nombre = $_SESSION["usuario"];
 
-?>
+/* Extraemos el genero del usuario por la base de datos */
+$consulta = "SELECT genero FROM usuarios WHERE usuario='$nombre'";
+$resultado = mysqli_query($conexion, $consulta);
+if (mysqli_num_rows($resultado) > 0) {
+  while ($rowData = mysqli_fetch_assoc($resultado)) {
+    $genero = $rowData["genero"];
+  }
+}
 
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -76,8 +84,16 @@ $nombre = $_SESSION["usuario"];
     </nav>
   </header>
 
-  <!-- "Cartel" de bienvenida -->
-  <h1 class="mt-2 text-center mayus">¡BIENVENIDO/A <?php echo $nombre; ?>!</h1>
+  <!-- "Cartel" de bienvenida según el genero seleccionado -->
+  <?php
+
+  if ($genero == "Femenino") {
+    ?> <h1 class="mt-2 text-center mayus">¡BIENVENIDA <?php echo $nombre; ?>!</h1> <?php
+  } else {
+    ?> <h1 class="mt-2 text-center mayus">¡BIENVENIDO <?php echo $nombre; ?>!</h1> <?php
+  }
+
+  ?>
 
   <!-- Carousel de bootstrap -->
   <section>

@@ -6,17 +6,18 @@ if (isset($_POST['insertar'])) {
     session_start();
     /* Recibimos la información enviada por el formulario y la almacenamos en una variable */
     $usuario = $_POST['usuario'];
-    $contraseña = $_POST['password'];
-    $contraseña2 = $_POST['password2'];
+    $password1 = $_POST['password'];
+    $password2 = $_POST['password2'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
+    $genero = $_POST['genero'];
     $nacimiento = date('Y-m-d', strtotime($_POST['nacimiento']));
 
     /* Verificamos si la contraseña ha sido confirmada correctamente */
-    if ($contraseña == $contraseña2) {
+    if ($password1 == $password2) {
         /* Encriptamos la contraseña por temas de seguridad */
-        $contraseña = md5($contraseña);
-        $consulta = "INSERT INTO usuarios(id_usuario,usuario,password,nombre,apellido,fecha_de_nacimiento) VALUES (null,'$usuario','$contraseña','$nombre','$apellido','$nacimiento')";
+        $password = md5($password1);
+        $consulta = "INSERT INTO usuarios(id_usuario,usuario,password,nombre,apellido,genero,fecha_de_nacimiento) VALUES (null,'$usuario','$password','$nombre','$apellido','$genero','$nacimiento')";
 
         /* Realizamos la consulta */
         $query_run = mysqli_query($conexion, $consulta);
@@ -86,6 +87,14 @@ if (isset($_POST['insertar'])) {
             <div>
                 <input name="nacimiento" type="date" placeholder="año-mes-dia" required>
             </div>
+            <!-- GÉNERO -->
+            <div>
+                <label for="genero">Indique su género</label>
+                <select class="boton" name="genero" required>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
             <!-- BOTÓN COMPLETAR REGISTRO -->
             <div>
                 <input name="insertar" class="btn" type="submit" value="Crear Cuenta"></input>
@@ -97,7 +106,7 @@ if (isset($_POST['insertar'])) {
         </form>
     </div>
 
-    
+
 
     <!-- Si existe status de registro, lo imprimimos por pantalla -->
     <div>
@@ -110,9 +119,9 @@ if (isset($_POST['insertar'])) {
         ?>
     </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 
 </html>
