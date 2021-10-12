@@ -8,6 +8,7 @@
 body{
     font-family: 'Poppins', sans-serif;
 	background-image: url(../img/fondo.jpg);
+	overflow-x: hidden;
 }
 /* INCIO LOGIN */
 .wave{
@@ -181,7 +182,6 @@ a:hover{
 .btn:hover{
 	background-position: right;
 }
-
 /* Responsive */
 
 @media screen and (max-width: 1050px){
@@ -242,15 +242,13 @@ a:hover{
 	transition: ease all 0.25s;
 	cursor: pointer;
 }
-
 /* FIN MENU / NAVBAR */
 
 /* INICIO HOME */
 
-.vacunacion {
+.home {
 	overflow-y: hidden;
 }
-
 .mayus {
 	text-transform: uppercase;
 }
@@ -334,3 +332,11 @@ thead {
 }
 
 /* Estilos de los botones de odontologia y oftalmologia */
+
+/* INICIO DIARIO PACIENTE */
+
+select {
+	width: 100%;
+}
+
+/* FIN DIARIO PACIENTE */

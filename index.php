@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-    <!-- Icono que aparece en la pestaña -->
-    <link rel="shortcut icon" href="img/simbolo_medico.png" type="image/png">
+	<!-- Icono que aparece en la pestaña -->
+	<link rel="shortcut icon" href="img/simbolo_medico.png" type="image/png">
 	<!-- Fuentes -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -12,8 +13,9 @@
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<!-- Titulo -->
-	<title>Hospital Online</title>
+	<title>Tu Salud Online</title>
 </head>
+
 <body>
 	<!-- Imagen de fondo -->
 	<img class="wave" src="img/wave.png" alt="Forma curva de decoracion">
@@ -28,34 +30,40 @@
 				<!-- Imagen del avatar -->
 				<img src="img/avatar.svg" alt="Avatar de un medico">
 				<h2 class="title">Bienvenido</h2>
-           		<div class="input-div one">
+				<div class="input-div one">
 					<!-- icono de usuario a la izquierda del input -->
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Usuario</h5>
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>Usuario</h5>
 						<!-- Input donde se ingresa el usuario -->
-           		   		<input type="text" class="input" name="usuario" required>
-           		   </div>
-           		</div>
-           		<div class="input-div pass">
+						<input type="text" class="input" name="usuario" required>
+					</div>
+				</div>
+				<div class="input-div pass">
 					<!-- Icono de candado a la izquierda del input -->
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<h5>Contraseña</h5>
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>Contraseña</h5>
 						<!-- Input donde se ingresa la contraseña -->
-           		    	<input type="password" class="input" name="password" required>
-            	   </div>
-            	</div>
+						<input type="password" class="input" name="password" required>
+					</div>
+				</div>
 				<!-- Boton para ingresar -->
-            	<input type="submit" class="btn" value="Ingresar">
-            </form>
-        </div>
-    </div>
+				<input type="submit" class="btn" value="Ingresar">
+				<!-- Botón para crear una cuenta -->
+                <div>
+                    <input type="button" class="btn" value="Crear Cuenta" onclick="location.href = 'signup.php';">
+                </div>
+			</form>
+		</div>
+	</div>
+
 	<!-- Javascript -->
-    <script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
+
 </html>

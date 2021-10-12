@@ -1,5 +1,6 @@
 <?php
 
+/* Una vez enviado el formulario se realiza el envio del correo electrónico a la dirección correspondiente */
 if (isset($_POST['submit'])) {
     $nombre = $_POST['nombre'];
     $mail = $_POST['mail'];
@@ -13,4 +14,3 @@ if (isset($_POST['submit'])) {
     mail($mailReceptor, 'CONSULTA ODONTOLÓGICA', $texto);
     header("Location: webCliente/odontologia.php");
 }
-?>
