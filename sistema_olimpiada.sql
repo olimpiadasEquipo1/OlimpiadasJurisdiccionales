@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2021 a las 13:00:55
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 12-10-2021 a las 22:30:37
+-- Versión del servidor: 5.7.31
+-- Versión de PHP: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,8 +27,9 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `diariopaciente`
 --
 
-CREATE TABLE `diariopaciente` (
-  `id_semana` int(5) NOT NULL,
+DROP TABLE IF EXISTS `diariopaciente`;
+CREATE TABLE IF NOT EXISTS `diariopaciente` (
+  `id_semana` int(5) NOT NULL AUTO_INCREMENT,
   `actividadLun` varchar(500) NOT NULL,
   `actividadMar` varchar(500) NOT NULL,
   `actividadMie` varchar(500) NOT NULL,
@@ -39,8 +40,9 @@ CREATE TABLE `diariopaciente` (
   `pesoSemanal` varchar(50) NOT NULL,
   `estado` varchar(500) NOT NULL,
   `valoracionSemana` varchar(9) NOT NULL,
-  `id_usuario` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_usuario` int(5) NOT NULL,
+  PRIMARY KEY (`id_semana`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `diariopaciente`
@@ -60,12 +62,14 @@ INSERT INTO `diariopaciente` (`id_semana`, `actividadLun`, `actividadMar`, `acti
 -- Estructura de tabla para la tabla `odontologos`
 --
 
-CREATE TABLE `odontologos` (
-  `id` int(5) NOT NULL,
+DROP TABLE IF EXISTS `odontologos`;
+CREATE TABLE IF NOT EXISTS `odontologos` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
   `apellido` varchar(50) NOT NULL,
   `telefono` int(10) NOT NULL,
-  `precio` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `precio` int(5) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `odontologos`
@@ -82,12 +86,14 @@ INSERT INTO `odontologos` (`id`, `apellido`, `telefono`, `precio`) VALUES
 -- Estructura de tabla para la tabla `oftalmologos`
 --
 
-CREATE TABLE `oftalmologos` (
-  `id` int(5) NOT NULL,
+DROP TABLE IF EXISTS `oftalmologos`;
+CREATE TABLE IF NOT EXISTS `oftalmologos` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
   `apellido` varchar(50) NOT NULL,
   `telefono` int(10) NOT NULL,
-  `precio` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `precio` int(5) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `oftalmologos`
@@ -105,82 +111,29 @@ INSERT INTO `oftalmologos` (`id`, `apellido`, `telefono`, `precio`) VALUES
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `id_usuario` int(5) NOT NULL,
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_usuario` int(5) NOT NULL AUTO_INCREMENT,
   `usuario` varchar(25) NOT NULL,
-  `contraseña` varchar(32) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `genero` varchar(9) NOT NULL,
-  `fecha_de_nacimiento` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `fecha_de_nacimiento` date NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `id_usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `usuario`, `contraseña`, `nombre`, `apellido`, `genero`, `fecha_de_nacimiento`) VALUES
-(15, 'adm_billie', '99d55289dd799485af0fd54f56d8ba6a', 'Billie', 'Eilish', 'Femenino', '2020-02-20'),
-(16, 'juanjo', '224c0b12060d7b4e22089beca8f95b68', 'Juan', 'José María', 'Masculino', '2020-02-20'),
-(17, 'augusto', '224c0b12060d7b4e22089beca8f95b68', 'Augusto', 'Gómez', 'Masculino', '2001-03-23'),
-(18, 'Paula', '224c0b12060d7b4e22089beca8f95b68', 'Paula', 'Albarracin', 'Femenino', '1998-10-18');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `diariopaciente`
---
-ALTER TABLE `diariopaciente`
-  ADD PRIMARY KEY (`id_semana`);
-
---
--- Indices de la tabla `odontologos`
---
-ALTER TABLE `odontologos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `oftalmologos`
---
-ALTER TABLE `oftalmologos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `id_usuario` (`id_usuario`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `diariopaciente`
---
-ALTER TABLE `diariopaciente`
-  MODIFY `id_semana` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de la tabla `odontologos`
---
-ALTER TABLE `odontologos`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `oftalmologos`
---
-ALTER TABLE `oftalmologos`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+INSERT INTO `usuarios` (`id_usuario`, `usuario`, `password`, `nombre`, `apellido`, `genero`, `fecha_de_nacimiento`) VALUES
+(26, 'Gabriel', 'de68bcc1f7c1e49617805929a79673d5', 'Gabriel', 'Schilliro', 'Masculino', '2002-07-19'),
+(27, 'Mirko', 'de68bcc1f7c1e49617805929a79673d5', 'Mirko', 'Doria', 'Masculino', '2002-11-27'),
+(28, 'Katia', 'de68bcc1f7c1e49617805929a79673d5', 'Katia', 'Ordonez', 'Femenino', '2003-04-13'),
+(29, 'Agustin', 'de68bcc1f7c1e49617805929a79673d5', 'Agustin', 'Gatica', 'Masculino', '2003-03-04'),
+(30, 'Maximiliano', 'de68bcc1f7c1e49617805929a79673d5', 'Maximiliano', 'Solis Colombo', 'Masculino', '2003-05-24');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
